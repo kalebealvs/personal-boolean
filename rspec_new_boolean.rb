@@ -9,7 +9,7 @@ describe "Personal if" do
 
   it "return false when expression is false" do
     (20 != 20).if_then.should eq(false)
-    (200 < 0).if_then.should eq(false)
+    (200 < 0).if_then{p "foo"}.should eq(false)
     (false).if_then.should eq(false)
   end
 

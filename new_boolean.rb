@@ -1,12 +1,12 @@
 module Konditional
   def if_then(&block)
-    self ? block.class == Proc ? block.call : self : self
+    self ? block_given? ? block.call : self : self
   end
 end
 
 module MethodMissing
   def method_missing(method, *args, &block)
-    method == :else ? block.call : super(method, *args)
+    method == :else  ? self : super(method, *args)
   end
 end
 
